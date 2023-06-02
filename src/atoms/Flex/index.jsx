@@ -5,4 +5,7 @@ export const Flex = styled.div`
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
   gap: ${(props) => props.gap};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
+  height: ${(props) => props.height};
 `;
