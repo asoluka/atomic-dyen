@@ -5,19 +5,35 @@ import styled from "styled-components";
 import { Flex } from "../atoms/Flex";
 
 const Wrapper = styled(Flex)`
-  padding: 3px 12px;
+  padding: 3px 2rem;
+  height: 60px;
+  border: 1px solid #fff;
+  border-radius: 16px;
+`;
+
+const ProfileIconWrapper = styled.div`
+  border: 1px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Navbar = () => {
   return (
     <Wrapper justifyContent="space-between">
       <Flex alignItems="center" gap="10px">
-        <Icons name="bars" />
+        <Icons name="bars" fill="#fff" />
         <Text>Menu</Text>
       </Flex>
 
       <Flex alignItems="center" gap="10px">
-        <Icons name="profile" />
+        <ProfileIconWrapper>
+          <Icons fill="#fff" width="90%" name="profile" />
+        </ProfileIconWrapper>
         <Text>Welcome</Text>
       </Flex>
     </Wrapper>
