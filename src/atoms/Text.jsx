@@ -1,5 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 
-export const Text = ({ children, className }) => {
-  return <p className={className}>{children}</p>;
+const StyledText = styled.p`
+  color: ${(props) => props.color};
+`;
+
+export const Text = ({ children, className, color }) => {
+  return (
+    <StyledText color={color} className={className}>
+      {children}
+    </StyledText>
+  );
 };

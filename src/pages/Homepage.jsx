@@ -49,7 +49,7 @@ export const Homepage = () => {
                 <ImageWrapper>
                   <img src={placeholder} alt="placeholder" />
                 </ImageWrapper>
-                <Text>Description</Text>
+                <Text color="#000">Description</Text>
               </Flex>
             ))}
           </Flex>
