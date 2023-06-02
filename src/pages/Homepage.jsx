@@ -1,6 +1,8 @@
 import { Navbar } from "../organisms/Navbar";
 import { Flex } from "../atoms/Flex";
 import styled from "styled-components";
+import { Text } from "../atoms/Text";
+import placeholder from "../assets/placeholder-image.png";
 
 const SidebarWrapper = styled.div`
   border: 1px solid #fff;
@@ -8,6 +10,11 @@ const SidebarWrapper = styled.div`
   width: 25%;
   height: 100%;
   padding: 1rem 2rem;
+`;
+
+const ImageWrapper = styled.div`
+  width: 120px;
+  height: 120px;
 `;
 
 const sideLinks = [
@@ -34,7 +41,21 @@ export const Homepage = () => {
             </div>
           ))}
         </SidebarWrapper>
-        <div>Main content</div>
+
+        <div>
+          <Flex gap="10px">
+            {[1, 2, 3].map((item) => (
+              <Flex key={item} bgColor="#fff">
+                <ImageWrapper>
+                  <img src={placeholder} alt="placeholder" />
+                </ImageWrapper>
+                <Text>Description</Text>
+              </Flex>
+            ))}
+          </Flex>
+          <div></div>
+          <div></div>
+        </div>
       </Flex>
     </>
   );

@@ -8,4 +8,5 @@ export const Flex = styled.div`
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
   height: ${(props) => props.height};
+  background-color: ${(props) => props.bgColor};
 `;
