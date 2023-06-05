@@ -13,8 +13,7 @@ const SidebarWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  width: 120px;
-  height: 120px;
+  width: ${(props) => props.width || "60px"};
 `;
 
 const sideLinks = [
@@ -33,7 +32,8 @@ export const Homepage = () => {
       <div>
         <Navbar />
       </div>
-      <Flex height="90vh" margin="1rem 0 0 0">
+
+      <Flex className="gap-x-4" height="90vh" margin="1rem 0 0 0">
         <SidebarWrapper>
           {sideLinks.map((item) => (
             <div key={item.name}>
@@ -42,19 +42,76 @@ export const Homepage = () => {
           ))}
         </SidebarWrapper>
 
-        <div>
-          <Flex gap="10px">
+        <div className="flex flex-col gap-y-8" style={{ width: "100%" }}>
+          <Flex justifyContent="space-between" gap="10px">
             {[1, 2, 3].map((item) => (
-              <Flex key={item} bgColor="#fff">
+              <Flex className="gap-x-4" key={item} alignItems="center">
                 <ImageWrapper>
                   <img src={placeholder} alt="placeholder" />
                 </ImageWrapper>
-                <Text color="#000">Description</Text>
+                <div>
+                  <Text>Title text</Text>
+                  <Text>Longer title text here</Text>
+                  <Text>Even Longer title text here...</Text>
+                </div>
               </Flex>
             ))}
           </Flex>
-          <div></div>
-          <div></div>
+
+          <div>
+            <Flex justifyContent="space-between" gap="10px">
+              {[1, 2, 3].map((item) => (
+                <Flex
+                  className="flex-col gap-x-4 gap-y-4"
+                  key={item}
+                  justifyContent="center"
+                >
+                  <ImageWrapper width="100%">
+                    <img src={placeholder} alt="placeholder" />
+                  </ImageWrapper>
+                  <div>
+                    <Text>Title text</Text>
+                    <Text>Longer title text here</Text>
+                    <Text>Even Longer title text here...</Text>
+                  </div>
+                </Flex>
+              ))}
+            </Flex>
+          </div>
+
+          <div>
+            <h1>Description</h1>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+            distinctio labore quod, aliquam molestiae adipisci commodi sed,
+            ducimus natus reiciendis sunt dolorem eius nesciunt impedit
+            delectus! Quod nihil veritatis aut.
+          </div>
+
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+            distinctio labore quod, aliquam molestiae adipisci commodi sed,
+            ducimus natus reiciendis sunt dolorem eius nesciunt impedit
+            delectus! Quod nihil veritatis aut.
+          </div>
+
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+            distinctio labore quod, aliquam molestiae adipisci commodi sed,
+            ducimus natus reiciendis sunt dolorem eius nesciunt impedit
+            delectus! Quod nihil veritatis aut.
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+            distinctio labore quod, aliquam molestiae adipisci commodi sed,
+            ducimus natus reiciendis sunt dolorem eius nesciunt impedit
+            delectus! Quod nihil veritatis aut.
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
+            distinctio labore quod, aliquam molestiae adipisci commodi sed,
+            ducimus natus reiciendis sunt dolorem eius nesciunt impedit
+            delectus! Quod nihil veritatis aut.
+          </div>
         </div>
       </Flex>
     </>

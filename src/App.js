@@ -1,7 +1,11 @@
 import { Homepage } from "./pages/Homepage";
 
 function App() {
-  return <Homepage />;
+  return (
+    <div className="container">
+      <Homepage />
+    </div>
+  );
 }
 
 export default App;
