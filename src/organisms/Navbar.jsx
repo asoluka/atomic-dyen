@@ -3,6 +3,7 @@ import { Icons } from "../atoms/Icons";
 import { Text } from "../atoms/Text";
 import styled from "styled-components";
 import { Flex } from "../atoms/Flex";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled(Flex)`
   padding: 3px 2rem;
@@ -31,9 +32,11 @@ export const Navbar = () => {
       </Flex>
 
       <Flex alignItems="center" gap="10px">
-        <ProfileIconWrapper>
-          <Icons fill="#fff" width="90%" name="profile" />
-        </ProfileIconWrapper>
+        <Link to="/profile">
+          <ProfileIconWrapper>
+            <Icons fill="#fff" width="90%" name="profile" />
+          </ProfileIconWrapper>
+        </Link>
         <Text>Welcome</Text>
       </Flex>
     </Wrapper>
