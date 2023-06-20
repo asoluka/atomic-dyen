@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { sentenceCase } from "../utils/sentenceCase";
+import { Link, Outlet } from "react-router-dom";
 
 export const Homepage = () => {
   const [todos, setTodos] = useState([]);
@@ -47,28 +48,39 @@ export const Homepage = () => {
   }
 
   return (
-    <ol className="grid grid-cols-3 gap-4">
-      {todos.map((item, idx) => (
-        <li className="bg-slate-600 p-4 mb-2 text-white" key={item.id}>
-          <div className="flex justify-between items-center">
-            <p style={generateStyle(item.status)}>{`${idx + 1}. ${sentenceCase(
-              item.title
-            )}`}</p>
+    <div className="flex gap-x-8">
+      <div className="w-2/4 h-[95vh] overflow-x-auto">
+        <ol className="grid grid-cols-1 gap-4">
+          {todos.map((item, idx) => (
+            <Link to={`/${item.id}`}>
+              <li className="bg-slate-600 p-4 mb-2 text-white" key={item.id}>
+                <div className="flex gap-4 justify-between">
+                  <p style={generateStyle(item.status)}>{`${
+                    idx + 1
+                  }. ${sentenceCase(item.title)}`}</p>
 
-            <select
-              style={{ color: "black" }}
-              name="status"
-              id="status"
-              onChange={(e) => handleSelect(e, item.id)}
-            >
-              <option value="pending">Pending</option>
-              <option value="in-progress">In Progress</option>
-              <option value="done">Done</option>
-              <option value="canceled">Canceled</option>
-            </select>
-          </div>
-        </li>
-      ))}
-    </ol>
+                  <div>
+                    <select
+                      style={{ color: "black" }}
+                      name="status"
+                      id="status"
+                      onChange={(e) => handleSelect(e, item.id)}
+                    >
+                      <option value="pending">Pending</option>
+                      <option value="in-progress">In Progress</option>
+                      <option value="done">Done</option>
+                      <option value="canceled">Canceled</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+            </Link>
+          ))}
+        </ol>
+      </div>
+      <div className="w-2/4">
+        <Outlet />
+      </div>
+    </div>
   );
 };
