@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import { RootErrorPage } from "./organisms/RootErrorPage";
 import { Todo } from "./organisms/Todo";
+import { Movies } from "./pages/Movies";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
         errorElement: <div>Error loading individual element</div>,
       },
     ],
+  },
+  {
+    path: "/movies",
+    element: <Movies />,
+    errorElement: <RootErrorPage />,
   },
 ]);
 

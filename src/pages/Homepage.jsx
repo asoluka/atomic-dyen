@@ -51,31 +51,36 @@ export const Homepage = () => {
     <div className="flex gap-x-8">
       <div className="w-2/4 h-[95vh] overflow-x-auto">
         <ol className="grid grid-cols-1 gap-4">
-          {todos.map((item, idx) => (
-            <Link to={`/${item.id}`}>
-              <li className="bg-slate-600 p-4 mb-2 text-white" key={item.id}>
-                <div className="flex gap-4 justify-between">
-                  <p style={generateStyle(item.status)}>{`${
-                    idx + 1
-                  }. ${sentenceCase(item.title)}`}</p>
+          {todos.map((item, idx) => {
+            return (
+              <Link
+                to={`/${item.id}?title=${item.title}&completed=${item.completed}`}
+                key={item.id}
+              >
+                <li className="bg-slate-600 p-4 mb-2 text-white">
+                  <div className="flex gap-4 justify-between">
+                    <p style={generateStyle(item.status)}>{`${
+                      idx + 1
+                    }. ${sentenceCase(item.title)}`}</p>
 
-                  <div>
-                    <select
-                      style={{ color: "black" }}
-                      name="status"
-                      id="status"
-                      onChange={(e) => handleSelect(e, item.id)}
-                    >
-                      <option value="pending">Pending</option>
-                      <option value="in-progress">In Progress</option>
-                      <option value="done">Done</option>
-                      <option value="canceled">Canceled</option>
-                    </select>
+                    <div>
+                      <select
+                        style={{ color: "black" }}
+                        name="status"
+                        id="status"
+                        onChange={(e) => handleSelect(e, item.id)}
+                      >
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="done">Done</option>
+                        <option value="canceled">Canceled</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </Link>
-          ))}
+                </li>
+              </Link>
+            );
+          })}
         </ol>
       </div>
       <div className="w-2/4">

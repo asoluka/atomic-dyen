@@ -1,8 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const Todo = () => {
-  let { id } = useParams();
+  let [searchParams] = useSearchParams();
 
-  return <div>Todo with ID: {id}</div>;
+  return (
+    <div>
+      <p>
+        <span className="font-bold">Title:</span> {searchParams.get("title")}
+      </p>
+
+      <p>
+        <span className="font-bold">Completed:</span>{" "}
+        {searchParams.get("completed") === "true" ? "True" : "False"}
+      </p>
+    </div>
+  );
 };
