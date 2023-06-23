@@ -10,8 +10,7 @@ export const Movies = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMWU4ZmI4Y2UwZDA5MjlmODAyZWQxZTYwYmI0MGNmNCIsInN1YiI6IjVmYjE3YWI5NzM1MjA1MDA0MDE1NTUwYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vdv2FN63GHjAlsylwOo_WcJYYwN7c_6Yf4IpMzC8OPI",
+        Authorization: "Bearer [USE_YOURS_HERE",
       },
     };
 
@@ -20,8 +19,6 @@ export const Movies = () => {
       .then((json) => setMovies(json.results))
       .catch((e) => console.log(e));
   }, []);
-
-  console.log(movies);
 
   return (
     <div className="flex gap-x-8">
